@@ -3,9 +3,9 @@ Streamlit dashboard for the Diabetes 130-US Hospitals 30-day readmission
 risk project.
 
 Two tabs:
-  1. Risk Predictor — enter patient/encounter features, get a predicted
+  1. Risk Predictor: enter patient/encounter features, get a predicted
      30-day readmission risk score from the trained model.
-  2. Model Equity — visualize how model performance (AUC, false negative
+  2. Model Equity: visualize how model performance (AUC, false negative
      rate) varies across demographic subgroups, based on the fairness
      analysis computed in src/fairness_analysis.py.
 
@@ -138,12 +138,12 @@ with tab1:
         st.metric("Predicted 30-day readmission risk", f"{proba*100:.1f}%")
 
         if proba > 0.35:
-            st.warning("Above the model's overall predicted-positive threshold — flagged as elevated risk.")
+            st.warning("Above the model's overall predicted-positive threshold, flagged as elevated risk.")
         else:
             st.success("Below the model's overall predicted-positive threshold.")
 
         st.caption(
-            "Note: this model has an overall ROC-AUC of ~0.64 — it is a research/demo "
+            "Note: this model has an overall ROC-AUC of ~0.64. It is a research/demo "
             "model, not a validated clinical decision tool. See the Model Equity tab "
             "for known performance gaps across demographic subgroups."
         )
