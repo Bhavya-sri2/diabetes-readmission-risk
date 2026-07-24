@@ -1,0 +1,12 @@
+[
+  {
+    "model": "Logistic Regression",
+    "roc_auc": 0.6442303945377138,
+    "avg_precision": 0.17122318874918524
+  },
+  {
+    "model": "HistGradientBoosting",
+    "roc_auc": 0.6408945581986365,
+    "avg_precision": 0.17895268163982742
+  }
+]
