@@ -24,7 +24,7 @@ def load_raw(path=RAW_PATH):
 
 
 def drop_high_missing_and_ids(df):
-    # weight is ~97% missing in this dataset — not usable
+    # weight is ~97% missing in this dataset, not usable
     # payer_code is largely administrative, not clinically predictive; high missingness
     drop_cols = ["weight", "payer_code"]
     return df.drop(columns=[c for c in drop_cols if c in df.columns])
@@ -46,7 +46,7 @@ def dedupe_patients(df):
 def filter_valid_discharge(df):
     """
     Discharge disposition codes 11, 13, 14, 19, 20, 21 correspond to
-    death or hospice — these patients cannot be readmitted, and including
+    death or hospice. These patients cannot be readmitted, and including
     them would bias the target definition. Standard practice in prior
     work on this dataset (Strack et al. 2014) is to exclude them.
     """
@@ -91,7 +91,7 @@ def clean_categoricals(df):
 
     # diag_1/2/3 are ICD-9 codes with huge cardinality; for a first model,
     # bucket by leading digit / category is a common simplification.
-    # Left as raw strings here — grouping happens in the modeling notebook.
+    # Left as raw strings here; grouping happens in the modeling notebook.
     return df
 
 

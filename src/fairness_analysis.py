@@ -5,7 +5,7 @@ demographic subgroups (race, gender, age).
 Rather than only checking raw accuracy, this looks at:
   - AUC per subgroup (does the model discriminate equally well for everyone?)
   - False Negative Rate per subgroup (does the model MISS high-risk patients
-    more often in some groups? This is the clinically important error —
+    more often in some groups? This is the clinically important error:
     a missed readmission risk means a patient doesn't get preventive care)
   - Predicted positive rate per subgroup (does the model flag some groups
     as high-risk more/less often than their true base rate would suggest?)

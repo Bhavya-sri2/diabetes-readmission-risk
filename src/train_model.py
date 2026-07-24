@@ -8,7 +8,7 @@ Models:
 
 Evaluation:
   - Stratified train/val/test split (patient-level, already deduped upstream)
-  - ROC-AUC and Average Precision (PR-AUC) — accuracy is misleading given
+  - ROC-AUC and Average Precision (PR-AUC): accuracy is misleading given
     the ~9% positive class rate
   - Calibration is checked informally via predicted probability distribution
 """
