@@ -1,0 +1,8 @@
+# Raw data (large, publicly available from UCI — not redistributed here)
+data/diabetic_data.csv
+data/diabetic_data_clean.csv
+
+# OS / editor
+.DS_Store
+__pycache__/
+*.pyc
