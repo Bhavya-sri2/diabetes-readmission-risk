@@ -1,0 +1,156 @@
+{
+  "overall": {
+    "n": 13994,
+    "true_positive_rate_base": 0.08968129198227812,
+    "predicted_positive_rate": 0.3537230241532085,
+    "auc": 0.6408945581986365,
+    "false_negative_rate": 0.4581673306772908,
+    "false_positive_rate": 0.33519114530182903
+  },
+  "race": {
+    "Caucasian": {
+      "n": 10455,
+      "true_positive_rate_base": 0.09220468675274988,
+      "predicted_positive_rate": 0.37187948350071737,
+      "auc": 0.6334855995918388,
+      "false_negative_rate": 0.45228215767634855,
+      "false_positive_rate": 0.35401959751343376
+    },
+    "AfricanAmerican": {
+      "n": 2544,
+      "true_positive_rate_base": 0.0880503144654088,
+      "predicted_positive_rate": 0.30974842767295596,
+      "auc": 0.6536051031403941,
+      "false_negative_rate": 0.48214285714285715,
+      "false_positive_rate": 0.2896551724137931
+    },
+    "Asian": {
+      "n": 90,
+      "true_positive_rate_base": 0.06666666666666667,
+      "predicted_positive_rate": 0.2111111111111111,
+      "auc": 0.5555555555555556,
+      "false_negative_rate": 0.6666666666666666,
+      "false_positive_rate": 0.20238095238095238
+    },
+    "Missing": {
+      "n": 397,
+      "true_positive_rate_base": 0.05037783375314862,
+      "predicted_positive_rate": 0.2972292191435768,
+      "auc": 0.7408488063660477,
+      "false_negative_rate": 0.35,
+      "false_positive_rate": 0.27851458885941643
+    },
+    "Other": {
+      "n": 217,
+      "true_positive_rate_base": 0.059907834101382486,
+      "predicted_positive_rate": 0.2626728110599078,
+      "auc": 0.6749622926093515,
+      "false_negative_rate": 0.5384615384615384,
+      "false_positive_rate": 0.25
+    },
+    "Hispanic": {
+      "n": 291,
+      "true_positive_rate_base": 0.09621993127147767,
+      "predicted_positive_rate": 0.27491408934707906,
+      "auc": 0.6719174361759914,
+      "false_negative_rate": 0.4642857142857143,
+      "false_positive_rate": 0.24714828897338403
+    }
+  },
+  "gender": {
+    "Male": {
+      "n": 6581,
+      "true_positive_rate_base": 0.08843640784075368,
+      "predicted_positive_rate": 0.32760978574684696,
+      "auc": 0.6365234698337466,
+      "false_negative_rate": 0.49140893470790376,
+      "false_positive_rate": 0.3100516752792132
+    },
+    "Female": {
+      "n": 7413,
+      "true_positive_rate_base": 0.0907864562255497,
+      "predicted_positive_rate": 0.3769054363955214,
+      "auc": 0.6443854965366114,
+      "false_negative_rate": 0.4294205052005943,
+      "false_positive_rate": 0.35756676557863504
+    }
+  },
+  "age": {
+    "[0-10)": {
+      "n": 30,
+      "note": "only one class present, AUC undefined"
+    },
+    "[60-70)": {
+      "n": 3128,
+      "true_positive_rate_base": 0.08663682864450128,
+      "predicted_positive_rate": 0.3171355498721228,
+      "auc": 0.6072132019885127,
+      "false_negative_rate": 0.5166051660516605,
+      "false_positive_rate": 0.3013650682534127
+    },
+    "[50-60)": {
+      "n": 2453,
+      "true_positive_rate_base": 0.07949449653485528,
+      "predicted_positive_rate": 0.16999592335915206,
+      "auc": 0.6376677795189752,
+      "false_negative_rate": 0.6666666666666666,
+      "false_positive_rate": 0.15589016829052257
+    },
+    "[80-90)": {
+      "n": 2255,
+      "true_positive_rate_base": 0.10022172949002217,
+      "predicted_positive_rate": 0.5818181818181818,
+      "auc": 0.6313422192369929,
+      "false_negative_rate": 0.26548672566371684,
+      "false_positive_rate": 0.5648102513553475
+    },
+    "[70-80)": {
+      "n": 3610,
+      "true_positive_rate_base": 0.1074792243767313,
+      "predicted_positive_rate": 0.425207756232687,
+      "auc": 0.6449710271522459,
+      "false_negative_rate": 0.38917525773195877,
+      "false_positive_rate": 0.4028553693358163
+    },
+    "[40-50)": {
+      "n": 1341,
+      "true_positive_rate_base": 0.0686055182699478,
+      "predicted_positive_rate": 0.2371364653243848,
+      "auc": 0.610140286141957,
+      "false_negative_rate": 0.6086956521739131,
+      "false_positive_rate": 0.22578062449959968
+    },
+    "[30-40)": {
+      "n": 534,
+      "true_positive_rate_base": 0.0599250936329588,
+      "predicted_positive_rate": 0.19662921348314608,
+      "auc": 0.6751120517928286,
+      "false_negative_rate": 0.625,
+      "false_positive_rate": 0.1852589641434263
+    },
+    "[90-100)": {
+      "n": 340,
+      "true_positive_rate_base": 0.09411764705882353,
+      "predicted_positive_rate": 0.6294117647058823,
+      "auc": 0.6163758116883117,
+      "false_negative_rate": 0.28125,
+      "false_positive_rate": 0.6201298701298701
+    },
+    "[20-30)": {
+      "n": 202,
+      "true_positive_rate_base": 0.06930693069306931,
+      "predicted_positive_rate": 0.23267326732673269,
+      "auc": 0.7496200607902734,
+      "false_negative_rate": 0.42857142857142855,
+      "false_positive_rate": 0.2074468085106383
+    },
+    "[10-20)": {
+      "n": 101,
+      "true_positive_rate_base": 0.04950495049504951,
+      "predicted_positive_rate": 0.07920792079207921,
+      "auc": 0.7708333333333334,
+      "false_negative_rate": 0.6,
+      "false_positive_rate": 0.0625
+    }
+  }
+}
