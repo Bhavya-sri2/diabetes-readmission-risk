@@ -29,7 +29,7 @@ st.set_page_config(
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_PATH = os.path.join(BASE_DIR, "models", "hgb_pipeline.joblib")
 FAIRNESS_PATH = os.path.join(BASE_DIR, "reports", "fairness_results.json")
-CLEAN_DATA_PATH = os.path.join(BASE_DIR, "data", "diabetic_data_clean.csv")
+DATA_SUMMARY_PATH = os.path.join(BASE_DIR, "reports", "data_overview_summary.json")
 
 
 @st.cache_resource
@@ -44,8 +44,9 @@ def load_fairness_results():
 
 
 @st.cache_data
-def load_clean_data():
-    return pd.read_csv(CLEAN_DATA_PATH)
+def load_data_summary():
+    with open(DATA_SUMMARY_PATH) as f:
+        return json.load(f)
 
 
 st.title("Diabetes Hospital Readmission: Risk Prediction & Model Equity")
@@ -199,17 +200,24 @@ with tab2:
 # ---------------------------------------------------------------------------
 with tab3:
     st.subheader("Dataset overview")
-    df = load_clean_data()
-    st.write(f"**{len(df):,}** unique patient encounters (deduplicated to first encounter per patient)")
+    summary = load_data_summary()
+    st.write(f"**{summary['n_encounters']:,}** unique patient encounters (deduplicated to first encounter per patient)")
 
     c1, c2 = st.columns(2)
     with c1:
-        readmit_counts = df["readmitted_30d"].value_counts().rename({0: "No 30-day readmit", 1: "30-day readmit"})
-        fig1 = px.pie(values=readmit_counts.values, names=readmit_counts.index, title="30-day readmission rate")
+        counts = summary["readmit_counts"]
+        labels = {"0": "No 30-day readmit", "1": "30-day readmit"}
+        fig1 = px.pie(
+            values=[counts.get("0", 0), counts.get("1", 0)],
+            names=[labels["0"], labels["1"]],
+            title="30-day readmission rate",
+        )
         st.plotly_chart(fig1, use_container_width=True)
     with c2:
-        age_readmit = df.groupby("age")["readmitted_30d"].mean().reset_index()
-        fig2 = px.bar(age_readmit, x="age", y="readmitted_30d", title="Readmission rate by age group")
+        age_readmit = pd.DataFrame(
+            {"age": list(summary["age_readmit_rate"].keys()), "readmit_rate": list(summary["age_readmit_rate"].values())}
+        )
+        fig2 = px.bar(age_readmit, x="age", y="readmit_rate", title="Readmission rate by age group")
         st.plotly_chart(fig2, use_container_width=True)
 
     st.markdown(
