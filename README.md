@@ -1,16 +1,16 @@
 # Diabetes Hospital Readmission Risk & Equity Audit
 
-Predicting 30-day hospital readmission risk for diabetes patients, with an explicit fairness/equity audit of the model's performance across demographic subgroups — built as an end-to-end ML project (data pipeline → model → equity audit → interactive dashboard).
+Predicting 30-day hospital readmission risk for diabetes patients, with an explicit fairness/equity audit of the model's performance across demographic subgroups. Built as an end-to-end ML project (data pipeline, model, equity audit, interactive dashboard).
 
 **[Read the full methods report](reports/methods_report.md)**
 
 ## Why this project
 
-Diabetes patients are readmitted to the hospital at disproportionately high rates, and hospitals face financial penalties (CMS Hospital Readmissions Reduction Program) for excess readmissions. Predictive models can help target follow-up care — but a model with good *aggregate* accuracy can still fail specific patient groups. This project builds a working risk model and then explicitly audits it for exactly that kind of hidden disparity, following the approach used in algorithmic fairness research (e.g. Obermeyer et al., 2019, *Science*).
+Diabetes patients are readmitted to the hospital at disproportionately high rates, and hospitals face financial penalties (CMS Hospital Readmissions Reduction Program) for excess readmissions. Predictive models can help target follow-up care, but a model with good *aggregate* accuracy can still fail specific patient groups. This project builds a working risk model and then explicitly audits it for exactly that kind of hidden disparity, following the approach used in algorithmic fairness research (e.g. Obermeyer et al., 2019, *Science*).
 
 ## Dataset
 
-[UCI Diabetes 130-US Hospitals for Years 1999–2008](https://doi.org/10.24432/C5230J) (Strack et al., 2014) — 101,766 inpatient encounters across 130 U.S. hospitals. After deduplicating to one encounter per patient and excluding death/hospice discharges: **69,973 encounters**, 9.0% with a 30-day readmission.
+[UCI Diabetes 130-US Hospitals for Years 1999-2008](https://doi.org/10.24432/C5230J) (Strack et al., 2014): 101,766 inpatient encounters across 130 U.S. hospitals. After deduplicating to one encounter per patient and excluding death/hospice discharges, **69,973 encounters** remain, with a 9.0% 30-day readmission rate.
 
 The raw/cleaned CSVs aren't committed to this repo (they're patient-level health records, even if de-identified and public). Download `diabetic_data.csv` and `IDS_mapping.csv` from the [UCI ML Repository](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) and place them in `data/` to reproduce.
 
@@ -39,7 +39,7 @@ dashboard/app.py           → Streamlit app: risk predictor + equity visualizat
 | Logistic Regression | 0.644 | 0.171 |
 | HistGradientBoosting | 0.641 | 0.179 |
 
-**Equity finding:** Asian patients (n=90 in test set) had the lowest AUC (0.556) and highest false negative rate (0.667) of any racial group, vs. 0.458 overall — meaning the model missed two-thirds of true readmissions in this subgroup. Age also showed wide disparities (false negative rate ranged from 0.265 to 0.667 across age bands). Full breakdown and discussion in the [methods report](reports/methods_report.md).
+**Equity finding:** Asian patients (n=90 in test set) had the lowest AUC (0.556) and highest false negative rate (0.667) of any racial group, versus 0.458 overall. That means the model missed two-thirds of true readmissions in this subgroup. Age also showed wide disparities (false negative rate ranged from 0.265 to 0.667 across age bands). Full breakdown and discussion in the [methods report](reports/methods_report.md).
 
 ## Dashboard
 
@@ -66,7 +66,7 @@ requirements.txt
 
 ## Limitations
 
-This is administrative EHR data from 1999–2008 and predates many changes in diabetes care; the model should not be read as clinically validated. The ~0.64 AUC ceiling reflects the absence of clinical narrative and social-determinant features. See the [methods report](reports/methods_report.md) for full discussion.
+This is administrative EHR data from 1999-2008 and predates many changes in diabetes care; the model should not be read as clinically validated. The ~0.64 AUC ceiling reflects the absence of clinical narrative and social-determinant features. See the [methods report](reports/methods_report.md) for full discussion.
 
 ## References
 
